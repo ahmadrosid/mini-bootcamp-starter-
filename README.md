@@ -59,3 +59,6 @@ This is a starter code for mini bootcamp: https://dub.sh/ngooding-7-hari
 ## License
 
 This project is private and proprietary.
+
+
+https://www.youtube.com/watch?v=M-u-eYaIzMw

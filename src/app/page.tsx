@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { auth } from "~/server/auth";
 import { HydrateClient } from "~/trpc/server";
+import TriggerButton from "./components/trigger-button";
 
 export default async function Home() {
   const session = await auth();
@@ -21,6 +22,8 @@ export default async function Home() {
                   Transform your documents into audio, intelligently
                 </p>
               </div>
+
+              <TriggerButton />
 
               {/* Auth Section */}
               {session ? (

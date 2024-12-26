@@ -16,6 +16,7 @@ export const env = createEnv({
     DATABASE_URL: z.string().url(),
     TURSO_AUTH_TOKEN: z.string(),
     LLAMA_CLOUD_API_KEY: z.string(),
+    TRIGGER_SECRET_KEY: z.string(),
     ELEVENLABS_API_KEY: z.string(),
     NODE_ENV: z
       .enum(["development", "test", "production"])
@@ -49,6 +50,7 @@ export const env = createEnv({
     DATABASE_URL: process.env.DATABASE_URL,
     TURSO_AUTH_TOKEN: process.env.TURSO_AUTH_TOKEN,
     LLAMA_CLOUD_API_KEY: process.env.LLAMA_CLOUD_API_KEY,
+    TRIGGER_SECRET_KEY: process.env.TRIGGER_SECRET_KEY,
     ELEVENLABS_API_KEY: process.env.ELEVENLABS_API_KEY,
     NODE_ENV: process.env.NODE_ENV,
     OPENAI_API_KEY: process.env.OPENAI_API_KEY,
