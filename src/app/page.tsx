@@ -6,8 +6,6 @@ import { Documents } from "./_components/Documents";
 export default async function Home() {
   const session = await auth();
 
-  console.log("user", session?.user);
-
   return (
     <HydrateClient>
       <main className="min-h-screen bg-gradient-to-b from-[#69026d] to-[#15162c]">

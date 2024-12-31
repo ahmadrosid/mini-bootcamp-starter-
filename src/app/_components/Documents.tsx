@@ -2,10 +2,11 @@
 
 import { UploadButton } from "~/utils/uploadthing";
 import { api } from "~/trpc/react";
+import { Pages } from "./Pages";
 
 export function Documents() {
-    const { data: documents, refetch: refetchDocuments } 
-            = api.document.getAll.useQuery();
+    const { data: documents, refetch: refetchDocuments }
+        = api.document.getAll.useQuery();
 
     const createDocument = api.document.create.useMutation({
         onSuccess: async () => {
@@ -26,7 +27,6 @@ export function Documents() {
             console.error("Error deleting document:", error);
         }
     });
-
 
     return (
         <div>
@@ -52,7 +52,6 @@ export function Documents() {
                 }}
             />
 
-            <div className="mt-8">
             {documents?.map((document) => (
                 <div className="text-white p-4 border rounded-xl bg-white/5" key={document.id}>
                     <div className="flex justify-between items-center">
@@ -65,16 +64,15 @@ export function Documents() {
                             {deleteDocument.isPending ? "Deleting..." : "Delete"}
                         </button>
                     </div>
-                    <p>Pages</p>
-                    {document.pages.map((page) => (
-                        <div key={page.id}>
-                            <p>Page {page.pageNumber}</p>
-                            <p>{page.content}</p>
-                        </div>
-                    ))}
+                    <Pages
+                        documentId={document.id}
+                        pages={document.pages}
+                        refetchDocuments={refetchDocuments}
+                        voice={"e1QlSdXpS6HwesZvYHND"}
+                    />
                 </div>
             ))}
-            </div>
+
         </div>
     );
 }
